@@ -1,0 +1,58 @@
+# Grade Calculator
+
+# 학생별로 이름, 숙제, 시험, lab 성적이 포함된 딕셔너리 생성
+# 성적 배점은 숙제 10%, 성적 70%, lab 20%
+# 90점 이상은 A, 80점 이상은 B, 70점 이상은 C, 60점 이상은 D
+김민수 = {"name": "김민수",\
+    "assignment": [80,50,40,20],\
+        "test":[75, 75],\
+            "lab":[78.20, 77.20]}
+이민아 = {"name": "이민아",\
+    "assignment": [80,60,20,20],\
+        "test":[83, 95],\
+            "lab":[67.90, 78.2]}
+배철수 = {"name": "베철수",\
+    "assignment": [72,82,23,39],\
+        "test":[78, 77],\
+            "lab":[80, 80]}
+
+def get_average(marks):
+    total_sum = sum(marks)
+    total_sum = float(total_sum)
+    return total_sum / len(marks)
+
+def calculate_total_average(student):
+    assignment = get_average(student["assignment"])
+    test = get_average(student["test"])
+    lab = get_average(student["lab"])
+    return (0.1*assignment + 0.7*test + 0.2*lab)
+
+def assign_letter_grade(score):
+    if score >= 90: return "A"
+    elif score >= 80: return "B"
+    elif score >= 70: return "C"
+    elif score >= 60: return "D"
+    else: return "F"
+
+def class_average_is(student_list):
+    print("students 리스트를 출력합니다 - 딕셔너리들의 리스트에 주목!")
+    print(student_list)
+    print()
+    result_list = []
+    for student in student_list:
+        stud_avg = calculate_total_average(student)
+        result_list.append(stud_avg)
+    return get_average(result_list)
+
+students = [김민수, 이민아, 배철수]
+
+for i in students:
+    print(i["name"])
+    print("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
+    print("%s의 총점 = %0.2f" %(i["name"], calculate_total_average(i)))
+    print("%s의 성적 = %s" %(i["name"], assign_letter_grade(calculate_total_average(i))))
+    print()
+
+class_av = class_average_is(students)
+print("반 전체 평균 점수 = %0.2f" %class_av)
+print("반 전체 평균 grade = %s" %assign_letter_grade(class_av))
