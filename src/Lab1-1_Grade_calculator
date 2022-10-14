@@ -3,10 +3,10 @@
 # 학생별로 이름, 숙제, 시험, lab 성적이 포함된 딕셔너리 생성
 # 성적 배점은 숙제 10%, 성적 70%, lab 20%
 # 90점 이상은 A, 80점 이상은 B, 70점 이상은 C, 60점 이상은 D
-김민수 = {"name": "김민수",\
-    "assignment": [80,50,40,20],\
-        "test":[75, 75],\
-            "lab":[78.20, 77.20]}
+박준영 = {"name": "박준영",\
+    "assignment": [100,100,100,100],\
+        "test":[95, 95],\
+            "lab":[99.20, 99.20]}
 이민아 = {"name": "이민아",\
     "assignment": [80,60,20,20],\
         "test":[83, 95],\
@@ -44,7 +44,7 @@ def class_average_is(student_list):
         result_list.append(stud_avg)
     return get_average(result_list)
 
-students = [김민수, 이민아, 배철수]
+students = [박준영, 이민아, 배철수]
 
 for i in students:
     print(i["name"])
