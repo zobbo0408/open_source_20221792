@@ -1,7 +1,7 @@
 #!/bin/sh
 bmi=`expr 10000 \* $1 / $2 / $2`
-echo $bmi
-if [ $bmi -le 18 ]
+
+if [ 1 -eq "$(echo "$bmi < 18.5"| bc)" ]
 then
  echo "저체중입니다."
 elif [ $bmi -lt 23 ]

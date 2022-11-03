@@ -7,13 +7,16 @@ fi
 
 cd $1
 
-for i in 0 1 2 3 4
-do
-	read name
-	touch $name
-done
+read x y z k l
 
-tar -cvf $1.tar file0.txt file1.txt file2.txt file3.txt file4.txt
+touch $x
+touch $y
+touch $z
+touch $k
+touch $l
+
+
+tar -cvf $1.tar file0.txt file1.txt file2.txt file3.txt file4.txt          
 
 mkdir $1
 mv $1.tar $1
